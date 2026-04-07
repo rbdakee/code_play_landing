@@ -24,7 +24,7 @@ export default function Home() {
         <CoursesSection />
         <TrialLessonSection />
         <ValueSection />
-        <OneOnOneSection />
+        {/* <OneOnOneSection /> */}
         <CasesSection />
         <ReviewsSection />
         <HowLessonsWorkSection />

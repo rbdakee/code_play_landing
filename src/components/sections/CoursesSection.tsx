@@ -10,7 +10,7 @@ import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
 
 export function CoursesSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-secondary-bg">
+    <section className="py-12 md:py-16 lg:py-20 bg-white">
       <Container>
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"

@@ -28,7 +28,7 @@ const staggerParent = {
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-white via-white to-primary-light/30 pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-20 lg:pb-24">
+    <section className="bg-white pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-20 lg:pb-24">
       <Container size="sm" className="text-center">
         {/* Course badges */}
         <motion.div

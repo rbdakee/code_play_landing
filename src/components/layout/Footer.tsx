@@ -8,7 +8,7 @@ import { fadeUp, staggerFast, viewport } from "@/lib/motion";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary-bg border-t border-muted-light">
+    <footer className="bg-white border-t border-muted-light">
       <Container className="py-12 md:py-16">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
