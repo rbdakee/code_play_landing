@@ -1,0 +1,57 @@
+"use client";
+
+import { Card } from "@/components/ui/Card";
+import { Carousel } from "@/components/ui/Carousel";
+import { Container } from "@/components/ui/Container";
+import { content } from "@/content/ru";
+import { motion } from "framer-motion";
+import { fadeUp, scaleIn, viewport } from "@/lib/motion";
+
+export function WhyUsSection() {
+  return (
+    <section className="py-12 md:py-16 lg:py-20 bg-white">
+      <Container>
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          {content.whyUs.heading}
+        </motion.h2>
+        <motion.p
+          className="text-center text-muted mb-12 max-w-2xl mx-auto"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          {content.whyUs.description}
+        </motion.p>
+
+        <motion.div
+          variants={scaleIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <Carousel
+          slides={content.whyUs.benefits.map((benefit) => (
+            <div key={benefit.id} className="px-1">
+              <Card className="max-w-3xl mx-auto">
+                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
+                  {benefit.heading}
+                </h3>
+                <p className="text-sm md:text-base text-muted leading-relaxed">
+                  {benefit.description}
+                </p>
+              </Card>
+            </div>
+          ))}
+        />
+        </motion.div>
+      </Container>
+    </section>
+  );
+}
