@@ -99,6 +99,18 @@ export function HeroSection() {
           Программирование для детей
         </motion.h1>
 
+        <motion.p
+          className="text-base sm:text-lg text-muted mb-8 max-w-2xl mx-auto leading-relaxed"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.1 }}
+        >
+          Scratch, Roblox и Python с наставником. <strong>Диагностика</strong> и
+          пошаговый <strong>план</strong> для родителя уже на первом уроке.
+        </motion.p>
+
         <motion.div
           className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-3"
           variants={staggerParent}
@@ -149,25 +161,6 @@ export function HeroSection() {
           {content.hero.ctaSubtext}
         </motion.p>
 
-        {/* Trust badges */}
-        <motion.div
-          className="flex flex-col gap-3 pt-8 border-t border-secondary-bg"
-          variants={staggerParent}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-        >
-          {content.hero.trustBadges.map((badge, idx) => (
-            <motion.div
-              key={idx}
-              className="flex items-center justify-center gap-2 text-sm text-muted"
-              variants={fadeUp}
-            >
-              <span className="text-primary">✓</span>
-              {badge}
-            </motion.div>
-          ))}
-        </motion.div>
       </Container>
     </section>
   );
