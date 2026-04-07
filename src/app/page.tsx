@@ -13,6 +13,7 @@ import { StatsSection } from "@/components/sections/StatsSection";
 import { ScarcitySection } from "@/components/sections/ScarcitySection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
+import { ScrollToTopButton } from "@/components/ui/ScrollToTopButton";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
         <FaqSection />
         <FinalCtaSection />
       </main>
+      <ScrollToTopButton />
       <Footer />
     </>
   );

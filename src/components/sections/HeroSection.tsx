@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { content } from "@/content/ru";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -26,9 +27,53 @@ const staggerParent = {
   },
 };
 
+function JumpingBadge({ label }: { label: string }) {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    let timerId: number | null = null;
+    let isMounted = true;
+
+    const scheduleJump = () => {
+      const delay = 700 + Math.random() * 2200;
+      timerId = window.setTimeout(async () => {
+        if (!isMounted) return;
+
+        await controls.start({
+          y: [0, -9, 0],
+          transition: { duration: 0.42, ease: "easeOut" },
+        });
+
+        if (isMounted) scheduleJump();
+      }, delay);
+    };
+
+    scheduleJump();
+
+    return () => {
+      isMounted = false;
+      if (timerId) window.clearTimeout(timerId);
+    };
+  }, [controls]);
+
+  return (
+    <motion.span
+      className="inline-block px-3 py-1 bg-primary-light text-primary text-xs font-semibold rounded-full"
+      variants={fadeUp}
+      animate={controls}
+    >
+      {label}
+    </motion.span>
+  );
+}
+
 export function HeroSection() {
   return (
-    <section className="bg-white pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-20 lg:pb-24">
+    <section
+      id="hero-section"
+      tabIndex={-1}
+      className="bg-gradient-to-br from-white via-white to-primary-light/30 pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-20 lg:pb-24"
+    >
       <Container size="sm" className="text-center">
         {/* Course badges */}
         <motion.div
@@ -39,13 +84,7 @@ export function HeroSection() {
           viewport={{ once: true, amount: 0.5 }}
         >
           {["Scratch", "Roblox Studio", "Python"].map((course) => (
-            <motion.span
-              key={course}
-              className="inline-block px-3 py-1 bg-primary-light text-primary text-xs font-semibold rounded-full"
-              variants={fadeUp}
-            >
-              {course}
-            </motion.span>
+            <JumpingBadge key={course} label={course} />
           ))}
         </motion.div>
 
@@ -57,20 +96,26 @@ export function HeroSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          {content.hero.heading}
+          Программирование для детей
         </motion.h1>
 
-        {/* Subheading */}
-        <motion.p
-          className="text-base sm:text-lg text-muted mb-8 max-w-2xl mx-auto leading-relaxed"
-          variants={fadeUp}
+        <motion.div
+          className="mb-8 flex flex-wrap justify-center gap-2 sm:gap-3"
+          variants={staggerParent}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.1 }}
         >
-          {content.hero.subheading}
-        </motion.p>
+          {["Индивидуально", "7-16 лет", "Онлайн"].map((item) => (
+            <motion.div
+              key={item}
+              variants={fadeUp}
+              className="rounded-full border border-primary/20 bg-white/80 px-4 py-2 text-sm font-semibold text-foreground shadow-sm"
+            >
+              {item}
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* CTA Button */}
         <motion.div

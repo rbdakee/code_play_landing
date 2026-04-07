@@ -9,7 +9,7 @@ import { fadeUp, scaleIn, viewport } from "@/lib/motion";
 
 export function WhyUsSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container>
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"

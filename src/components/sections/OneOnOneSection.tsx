@@ -6,7 +6,7 @@ import { content } from "@/content/ru";
 
 export function OneOnOneSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container size="md">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
           {content.oneOnOne.heading}

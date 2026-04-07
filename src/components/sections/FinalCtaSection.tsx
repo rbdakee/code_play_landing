@@ -50,7 +50,7 @@ function TypewriterText({ text }: { text: string }) {
 
 export function FinalCtaSection() {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-secondary-bg to-primary-light">
       <Container size="sm" className="text-center">
         <TypewriterText text={content.finalCta.heading} />
         <motion.p

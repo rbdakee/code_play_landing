@@ -11,7 +11,7 @@ export function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container size="md">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"

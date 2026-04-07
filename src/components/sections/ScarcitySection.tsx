@@ -9,7 +9,7 @@ import { fadeUp, viewport } from "@/lib/motion";
 
 export function ScarcitySection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-primary-light to-[#f3fbea]">
       <Container size="sm" className="text-center">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-6"

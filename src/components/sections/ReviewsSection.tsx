@@ -34,7 +34,7 @@ function ReviewCard({ quote, author, country }: ReviewCardProps) {
 
 export function ReviewsSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-primary-light to-white">
       <Container>
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"

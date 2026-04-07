@@ -7,7 +7,7 @@ import { fadeUp, slideLeft, slideRight, staggerFast, viewport } from "@/lib/moti
 
 export function ValueSection() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f7faf6] to-secondary-bg">
       <Container>
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center"
