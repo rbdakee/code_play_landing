@@ -2,12 +2,14 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { content } from "@/content/ru";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 import { fadeUp, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function ScarcitySection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-primary-light to-[#f3fbea]">
       <Container size="sm" className="text-center">
@@ -36,12 +38,13 @@ export function ScarcitySection() {
           viewport={viewport}
         >
           <Button
-          href={getWhatsAppUrl()}
+          href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
           target="_blank"
           rel="noopener noreferrer"
           size="lg"
         >
-          {content.scarcity.ctaText} →
+          {content.scarcity.ctaText}
+          {"\u00A0→"}
         </Button>
         </motion.div>
       </Container>

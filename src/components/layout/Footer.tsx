@@ -1,12 +1,14 @@
 "use client";
 
-import { content } from "@/content/ru";
 import { Container } from "@/components/ui/Container";
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerFast, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function Footer() {
+  const content = useContent();
+
   return (
     <footer className="bg-secondary-bg border-t border-muted-light">
       <Container className="py-12 md:py-16">
@@ -29,7 +31,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={fadeUp}>
-            <h4 className="font-semibold text-foreground mb-4">Информация</h4>
+            <h4 className="font-semibold text-foreground mb-4">{content.footer.infoHeading}</h4>
             <ul className="space-y-2">
               <li>
                 <a
@@ -60,7 +62,7 @@ export function Footer() {
 
           {/* Social & Contact */}
           <motion.div variants={fadeUp}>
-            <h4 className="font-semibold text-foreground mb-4">Контакты</h4>
+            <h4 className="font-semibold text-foreground mb-4">{content.footer.contactsHeading}</h4>
             <div className="space-y-3">
               <a
                 href="https://wa.me/77772270088"
@@ -69,7 +71,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm text-muted hover:text-primary transition-colors"
               >
                 <MessageCircle size={16} />
-                WhatsApp
+                {content.footer.social.whatsapp}
               </a>
               <p className="text-sm text-muted">
                 {content.footer.social.telegram}
@@ -88,15 +90,6 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-muted">
             <p>{content.footer.copyright}</p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <button className="hover:text-foreground transition-colors">
-                Русский
-              </button>
-              <span className="text-muted-light">|</span>
-              <button className="hover:text-foreground transition-colors">
-                English
-              </button>
-            </div>
           </div>
         </motion.div>
       </Container>

@@ -3,11 +3,13 @@
 import { Card } from "@/components/ui/Card";
 import { Carousel } from "@/components/ui/Carousel";
 import { Container } from "@/components/ui/Container";
-import { content } from "@/content/ru";
 import { motion } from "framer-motion";
 import { fadeUp, scaleIn, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function WhyUsSection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container>

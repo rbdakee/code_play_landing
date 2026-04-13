@@ -3,14 +3,19 @@
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { content } from "@/content/ru";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function CoursesSection() {
+  const content = useContent();
+
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f7faf6] to-secondary-bg">
+    <section
+      id="courses-section"
+      className="scroll-mt-24 bg-gradient-to-b from-[#f7faf6] to-secondary-bg py-12 md:py-16 lg:py-20"
+    >
       <Container>
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"
@@ -54,7 +59,7 @@ export function CoursesSection() {
               </p>
               <div className="mb-6">
                 <p className="text-xs font-semibold text-foreground mb-3 uppercase">
-                  Ребёнок:
+                  {content.courses.childLabel}
                 </p>
                 <ul className="space-y-2">
                   {course.features.map((feature, idx) => (
@@ -66,7 +71,7 @@ export function CoursesSection() {
                 </ul>
               </div>
               <Button
-                href={getWhatsAppUrl()}
+                href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"

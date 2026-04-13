@@ -1,13 +1,14 @@
+import { content as ruContent } from "@/content/ru";
 import { WHATSAPP_NUMBER } from "./constants";
-
-const TRIAL_LESSON_MESSAGE = "Хочу записать ребёнка на бесплатный пробный урок";
 
 /**
  * Builds WhatsApp Web URL with prefilled message.
  * Opens https://wa.me/PHONE?text=MESSAGE in browser.
  */
-export function getWhatsAppUrl(): string {
-  const encodedMessage = encodeURIComponent(TRIAL_LESSON_MESSAGE);
+export function getWhatsAppUrl(
+  message: string = ruContent.whatsapp.trialLessonMessage
+): string {
+  const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 }
 
@@ -25,5 +26,5 @@ export function getWhatsAppUrlWithMessage(message: string): string {
  * Useful for button labels or microcopy.
  */
 export function getTrialLessonMessage(): string {
-  return TRIAL_LESSON_MESSAGE;
+  return ruContent.whatsapp.trialLessonMessage;
 }

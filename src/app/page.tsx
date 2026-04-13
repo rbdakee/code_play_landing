@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="pt-24">
         <HeroSection />
         <WhyUsSection />
         <CoursesSection />

@@ -27,7 +27,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles = cn(
-    "inline-block font-semibold rounded-lg transition-all duration-200 ease-in-out",
+    "inline-block text-center whitespace-pre-line font-semibold rounded-lg transition-all duration-200 ease-in-out",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
     "disabled:opacity-50 disabled:cursor-not-allowed"
   );

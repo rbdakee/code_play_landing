@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { content } from "@/content/ru";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 function AnimatedNumber({ value }: { value: string }) {
   const [display, setDisplay] = useState(value);
@@ -53,6 +53,7 @@ function AnimatedNumber({ value }: { value: string }) {
 }
 
 export function StatsSection() {
+  const content = useContent();
   const progress = [72, 92, 58, 68, 100];
 
   return (
@@ -86,7 +87,7 @@ export function StatsSection() {
         >
           <motion.div variants={scaleIn} className="lg:col-span-2">
             <Card variant="elevated" className="h-full">
-              <p className="text-sm text-muted mb-3">Динамика вовлечённости</p>
+              <p className="text-sm text-muted mb-3">{content.stats.chartLabel}</p>
               <div className="rounded-lg bg-primary-light/50 p-3">
                 <svg viewBox="0 0 460 180" className="w-full h-[180px]" aria-hidden="true">
                   <defs>
@@ -132,7 +133,7 @@ export function StatsSection() {
 
           <motion.div variants={scaleIn}>
             <Card variant="elevated" className="h-full flex flex-col items-center justify-center text-center">
-              <p className="text-sm text-muted mb-4">Индивидуальный формат</p>
+              <p className="text-sm text-muted mb-4">{content.stats.individualFormatTitle}</p>
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -148,7 +149,7 @@ export function StatsSection() {
                   <p className="text-2xl font-bold text-primary">100%</p>
                 </div>
               </motion.div>
-              <p className="text-xs text-muted mt-4">Все занятия проходят 1:1</p>
+              <p className="text-xs text-muted mt-4">{content.stats.individualFormatDescription}</p>
             </Card>
           </motion.div>
         </motion.div>

@@ -2,11 +2,11 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { content } from "@/content/ru";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 function TypewriterText({ text }: { text: string }) {
   const [displayedText, setDisplayedText] = useState("");
@@ -34,7 +34,7 @@ function TypewriterText({ text }: { text: string }) {
   return (
     <h2
       ref={ref}
-      className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 min-h-[1.4em] md:min-h-[1.3em] lg:min-h-[1.2em]"
+      className="mx-auto max-w-3xl text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 min-h-[1.4em] md:min-h-[1.3em] lg:min-h-[1.2em]"
     >
       {displayedText}
       <span
@@ -49,9 +49,11 @@ function TypewriterText({ text }: { text: string }) {
 }
 
 export function FinalCtaSection() {
+  const content = useContent();
+
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-secondary-bg to-primary-light">
-      <Container size="sm" className="text-center">
+      <Container size="md" className="text-center">
         <TypewriterText text={content.finalCta.heading} />
         <motion.p
           className="text-lg text-muted mb-8 leading-relaxed"
@@ -70,17 +72,18 @@ export function FinalCtaSection() {
           viewport={viewport}
         >
           <Button
-            href={getWhatsAppUrl()}
+            href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
             target="_blank"
             rel="noopener noreferrer"
             size="lg"
             className="mx-auto"
           >
-            {content.finalCta.ctaText} →
+            {content.finalCta.ctaText}
+            {"\u00A0→"}
           </Button>
         </motion.div>
         <motion.p
-          className="text-sm text-muted"
+          className="inline-flex max-w-full items-center justify-center rounded-full border border-rose-200/80 bg-rose-50/80 px-4 py-2 text-sm font-medium text-rose-700/85"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"

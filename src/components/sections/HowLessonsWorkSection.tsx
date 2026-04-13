@@ -2,11 +2,13 @@
 
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { content } from "@/content/ru";
 import { motion } from "framer-motion";
 import { fadeUp, scaleIn, staggerFast, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function HowLessonsWorkSection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f7faf6] to-secondary-bg">
       <Container size="sm">

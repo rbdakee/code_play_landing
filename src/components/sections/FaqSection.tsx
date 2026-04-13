@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { content } from "@/content/ru";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeUp, staggerFast, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function FaqSection() {
+  const content = useContent();
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (

@@ -1,11 +1,13 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { content } from "@/content/ru";
 import { motion } from "framer-motion";
 import { fadeUp, slideLeft, slideRight, staggerFast, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function ValueSection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f7faf6] to-secondary-bg">
       <Container>

@@ -2,9 +2,11 @@
 
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { content } from "@/content/ru";
+import { useContent } from "@/lib/i18n";
 
 export function OneOnOneSection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container size="md">

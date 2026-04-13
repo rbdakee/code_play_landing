@@ -2,12 +2,14 @@
 
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { content } from "@/content/ru";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { motion } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
+import { useContent } from "@/lib/i18n";
 
 export function TrialLessonSection() {
+  const content = useContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
       <Container>
@@ -69,12 +71,13 @@ export function TrialLessonSection() {
           viewport={viewport}
         >
           <Button
-            href={getWhatsAppUrl()}
+            href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
             target="_blank"
             rel="noopener noreferrer"
             size="lg"
           >
-            {content.trialLesson.ctaText} →
+            {content.trialLesson.ctaText}
+            {"\u00A0→"}
           </Button>
         </motion.div>
       </Container>
