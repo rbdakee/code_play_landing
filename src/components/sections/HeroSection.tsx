@@ -161,19 +161,25 @@ function AnimatedGroup({ children, className, variants }: AnimatedGroupProps) {
 // HeroSection
 // ---------------------------------------------------------------------------
 
+// Order matches courseBadges: ["Scratch", "Roblox Studio", "Python"]
 const courseIcons = [
-  { Icon: Gamepad2, color: "text-blue-500", bg: "from-blue-500/10 to-blue-600/5 border-blue-500/20" },
-  { Icon: Code2,    color: "text-primary",  bg: "from-primary/10 to-primary/5 border-primary/20" },
   { Icon: Sparkles, color: "text-orange-500", bg: "from-orange-500/10 to-orange-600/5 border-orange-500/20" },
+  { Icon: Gamepad2, color: "text-blue-500",   bg: "from-blue-500/10 to-blue-600/5 border-blue-500/20" },
+  { Icon: Code2,    color: "text-primary",    bg: "from-primary/10 to-primary/5 border-primary/20" },
 ];
 
 export function HeroSection() {
   const content = useContent();
-  const { courseBadges, heading, subheading, ctaText, ctaSubtext } = content.hero;
-
-  // Extract short label from full heading for the animated cycle
-  // courseBadges = ["Scratch", "Roblox Studio", "Python"]
-  const cycleWords = courseBadges;
+  const {
+    courseBadges,
+    headingPrefix,
+    headingSuffix,
+    subheading,
+    ctaText,
+    ctaSubtext,
+    viewCoursesText,
+    courseDescriptions,
+  } = content.hero;
 
   return (
     <section
@@ -194,23 +200,22 @@ export function HeroSection() {
             <AnimatedGroup variants={transitionVariants}>
               {/* Top badge */}
               <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-primary/20 bg-primary-light px-4 py-2 shadow-sm">
-                <Sparkles className="size-4 text-primary" />
+                <Sparkles className="size-5 shrink-0 text-primary" />
                 <span className="text-sm font-medium text-foreground">
                   {subheading}
                 </span>
               </div>
 
               {/* Headline */}
-              <h1 className="mt-8 mx-auto max-w-4xl text-balance text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight lg:mt-12">
-                {/* First word from heading, then animated cycle */}
-                Учим{" "}
+              <h1 className="mt-8 mx-auto max-w-4xl text-balance text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight lg:mt-12">
+                {headingPrefix}{" "}
                 <AnimatedTextCycle
-                  words={cycleWords}
+                  words={courseBadges}
                   interval={3000}
                   className="text-primary"
                 />
                 <br />
-                <span className="text-foreground">для детей 7–16 лет</span>
+                <span className="text-foreground">{headingSuffix}</span>
               </h1>
 
               {/* Feature badges */}
@@ -255,7 +260,7 @@ export function HeroSection() {
                 size="lg"
                 className="rounded-xl px-6"
               >
-                Смотреть курсы
+                {viewCoursesText}
               </Button>
             </AnimatedGroup>
 
@@ -302,9 +307,7 @@ export function HeroSection() {
                         <Icon className={`size-12 ${color} mb-4`} />
                         <h3 className="text-xl font-bold mb-2">{course}</h3>
                         <p className="text-sm text-muted text-center">
-                          {index === 0 && "Создавай игры и анимации"}
-                          {index === 1 && "Изучай настоящее программирование"}
-                          {index === 2 && "Визуальное программирование для старта"}
+                          {courseDescriptions[index]}
                         </p>
                       </div>
                     );

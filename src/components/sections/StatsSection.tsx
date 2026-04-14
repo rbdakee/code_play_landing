@@ -1,189 +1,237 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  useSpring,
+} from "framer-motion";
+import {
+  Users,
+  Globe,
+  MapPin,
+  Award,
+  Target,
+  BookOpen,
+  Sparkles,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { motion, useInView } from "framer-motion";
-import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
+import { Button } from "@/components/ui/Button";
 import { useContent } from "@/lib/i18n";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { cn } from "@/lib/cn";
 
-function AnimatedNumber({ value }: { value: string }) {
-  const [display, setDisplay] = useState(value);
-  const ref = useRef<HTMLSpanElement | null>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.7 });
+// ── Icon map (order matches content.stats.list) ──────────────────────────────
+const STAT_ICONS = [
+  <Award key="award" className="w-8 h-8" />,
+  <Users key="users" className="w-8 h-8" />,
+  <Globe key="globe" className="w-8 h-8" />,
+  <MapPin key="map" className="w-8 h-8" />,
+  <Target key="target" className="w-8 h-8" />,
+];
 
-  useEffect(() => {
-    if (!isInView) return;
-
-    const numeric = Number((value.match(/\d+/) || [])[0]);
-    if (!numeric) {
-      setDisplay(value);
-      return;
-    }
-
-    const hasPercent = value.includes("%");
-    const hasPlus = value.includes("+");
-    let current = 0;
-    const duration = 1200;
-    const stepMs = 24;
-    const steps = Math.max(1, Math.floor(duration / stepMs));
-    const increment = numeric / steps;
-
-    const timer = window.setInterval(() => {
-      current += increment;
-      if (current >= numeric) {
-        window.clearInterval(timer);
-        current = numeric;
-      }
-
-      const rounded = Math.round(current);
-      if (hasPercent) {
-        setDisplay(`${rounded}%`);
-      } else if (hasPlus) {
-        setDisplay(`[${rounded}]+`);
-      } else {
-        setDisplay(String(rounded));
-      }
-    }, stepMs);
-
-    return () => window.clearInterval(timer);
-  }, [isInView, value]);
-
-  return <span ref={ref}>{display}</span>;
+// ── Parse "[500]+" → { num: 500, suffix: "+" } ───────────────────────────────
+function parseStatValue(raw: string): { num: number; suffix: string } {
+  const cleaned = raw.replace(/[\[\]]/g, "");
+  const match = cleaned.match(/^(\d+)(.*)$/);
+  if (!match) return { num: 0, suffix: cleaned };
+  return { num: parseInt(match[1], 10), suffix: match[2] };
 }
 
-export function StatsSection() {
-  const content = useContent();
-  const progress = [72, 92, 58, 68, 100];
+// ── Animated counter card ────────────────────────────────────────────────────
+interface StatCounterProps {
+  icon: React.ReactNode;
+  num: number;
+  suffix: string;
+  label: string;
+  delay: number;
+}
+
+function StatCounter({ icon, num, suffix, label, delay }: StatCounterProps) {
+  const countRef = useRef(null);
+  const isInView = useInView(countRef, { once: true });
+
+  const springValue = useSpring(0, { stiffness: 50, damping: 10 });
+  const displayValue = useTransform(springValue, (v) => Math.floor(v));
+
+  // Trigger once when in view
+  useRef(() => {
+    if (isInView) springValue.set(num);
+  });
+
+  // useEffect equivalent via motion value subscription
+  if (isInView) springValue.set(num);
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#fbfdf9]">
-      <Container>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-foreground mb-2 text-center"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          {content.stats.heading}
-        </motion.h2>
-        <motion.p
-          className="text-center text-muted mb-12"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          {content.stats.description}
-        </motion.p>
+    <motion.div
+      className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl flex flex-col items-center text-center group hover:bg-white hover:shadow-lg transition-all duration-300 border border-primary/10"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
+      }}
+      whileHover={{ y: -8, transition: { duration: 0.2 } }}
+    >
+      <motion.div
+        className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center mb-4 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300"
+        whileHover={{ rotate: 360, transition: { duration: 0.8 } }}
+      >
+        {icon}
+      </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          <motion.div variants={scaleIn} className="lg:col-span-2">
-            <Card variant="elevated" className="h-full">
-              <p className="text-sm text-muted mb-3">{content.stats.chartLabel}</p>
-              <div className="rounded-lg bg-primary-light/50 p-3">
-                <svg viewBox="0 0 460 180" className="w-full h-[180px]" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#60C849" stopOpacity="0.35" />
-                      <stop offset="100%" stopColor="#60C849" stopOpacity="0.04" />
-                    </linearGradient>
-                  </defs>
-                  <polyline
-                    fill="url(#areaFill)"
-                    stroke="none"
-                    points="10,150 90,120 170,132 250,95 330,85 410,48 410,170 10,170"
-                  />
-                  <motion.polyline
-                    fill="none"
-                    stroke="#60C849"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    points="10,150 90,120 170,132 250,95 330,85 410,48"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={viewport}
-                    transition={{ duration: 1.1, ease: "easeOut" }}
-                  />
-                  {[10, 90, 170, 250, 330, 410].map((x, idx) => (
-                    <motion.circle
-                      key={x}
-                      cx={x}
-                      cy={[150, 120, 132, 95, 85, 48][idx]}
-                      r="5"
-                      fill="#60C849"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={viewport}
-                      transition={{ delay: 0.25 + idx * 0.08, duration: 0.25 }}
-                    />
-                  ))}
-                </svg>
+      <div ref={countRef} className="text-4xl font-bold text-foreground flex items-center">
+        <motion.span>{displayValue}</motion.span>
+        <span>{suffix}</span>
+      </div>
+
+      <p className="text-muted text-sm mt-2 font-medium leading-snug">{label}</p>
+
+      <motion.div className="w-12 h-1 bg-primary mt-4 rounded-full group-hover:w-20 transition-all duration-300" />
+    </motion.div>
+  );
+}
+
+// ── StatsSection ─────────────────────────────────────────────────────────────
+export function StatsSection() {
+  const content = useContent();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.2 });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      className="w-full py-12 md:py-16 lg:py-20 relative overflow-hidden bg-gradient-to-b from-primary-light/40 via-white to-primary-light/20"
+    >
+      {/* Parallax blobs */}
+      <motion.div
+        className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/8 blur-3xl pointer-events-none"
+        style={{ y: y1 }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-primary/6 blur-3xl pointer-events-none"
+        style={{ y: y2 }}
+      />
+
+      {/* Floating dots */}
+      <motion.div
+        className="absolute top-1/3 left-1/4 w-4 h-4 rounded-full bg-primary/30 pointer-events-none"
+        animate={{ y: [0, -15, 0], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 right-1/3 w-6 h-6 rounded-full bg-primary/25 pointer-events-none"
+        animate={{ y: [0, 20, 0], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+
+      <motion.div
+        className="relative z-10"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <Container>
+          {/* Header */}
+          <motion.div className="flex flex-col items-center mb-12 md:mb-16" variants={itemVariants}>
+            <motion.span
+              className="text-primary font-semibold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider"
+              initial={{ opacity: 0, y: -10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Sparkles className="w-4 h-4" />
+              {content.stats.description}
+            </motion.span>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-center">
+              {content.stats.heading}
+            </h2>
+
+            <motion.div
+              className="h-1.5 bg-primary rounded-full"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: 128 } : { width: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+          </motion.div>
+
+          {/* Stat counters grid */}
+          <motion.div
+            ref={statsRef}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"
+            initial="hidden"
+            animate={isStatsInView ? "visible" : "hidden"}
+            variants={containerVariants}
+          >
+            {content.stats.list.map((stat, idx) => {
+              const { num, suffix } = parseStatValue(stat.value);
+              return (
+                <StatCounter
+                  key={idx}
+                  icon={STAT_ICONS[idx] ?? STAT_ICONS[0]}
+                  num={num}
+                  suffix={suffix}
+                  label={stat.label}
+                  delay={idx * 0.1}
+                />
+              );
+            })}
+          </motion.div>
+
+          {/* Bottom banner */}
+          <motion.div
+            className="bg-primary text-white p-8 md:p-10 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                <BookOpen className="w-6 h-6 shrink-0" />
+                <h3 className="text-2xl md:text-3xl font-bold">
+                  {content.stats.individualFormatTitle}
+                </h3>
               </div>
-            </Card>
-          </motion.div>
+              <p className="text-white/85 text-base md:text-lg leading-relaxed">
+                {content.stats.individualFormatDescription}
+              </p>
+            </div>
 
-          <motion.div variants={scaleIn}>
-            <Card variant="elevated" className="h-full flex flex-col items-center justify-center text-center">
-              <p className="text-sm text-muted mb-4">{content.stats.individualFormatTitle}</p>
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={viewport}
-                transition={{ duration: 0.45 }}
-                className="w-36 h-36 rounded-full grid place-items-center"
-                style={{
-                  background:
-                    "conic-gradient(#60C849 0 360deg, rgba(96,200,73,0.15) 360deg 360deg)",
-                }}
-              >
-                <div className="w-24 h-24 rounded-full bg-white grid place-items-center border border-primary/20">
-                  <p className="text-2xl font-bold text-primary">100%</p>
-                </div>
-              </motion.div>
-              <p className="text-xs text-muted mt-4">{content.stats.individualFormatDescription}</p>
-            </Card>
+            <Button
+              href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="lg"
+              className="shrink-0 rounded-full font-semibold shadow-lg"
+            >
+              {content.scarcity.ctaText}
+            </Button>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          {content.stats.list.map((stat, idx) => (
-            <motion.div key={idx} variants={scaleIn} whileHover={{ y: -4 }}>
-              <Card variant="outline" className="py-6">
-                <p className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                  <AnimatedNumber value={stat.value} />
-                </p>
-                <p className="text-xs md:text-sm text-muted min-h-[40px]">
-                  {stat.label}
-                </p>
-                <div className="mt-4 h-2 rounded-full bg-primary-light overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full bg-primary"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${progress[idx]}%` }}
-                    viewport={viewport}
-                    transition={{ duration: 0.8, delay: idx * 0.08 }}
-                  />
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
-      </Container>
+        </Container>
+      </motion.div>
     </section>
   );
 }

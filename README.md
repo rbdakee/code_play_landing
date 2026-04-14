@@ -35,6 +35,7 @@ Create `.env.local`:
 
 ```env
 NEXT_PUBLIC_WHATSAPP_NUMBER=77772270088
+NEXT_PUBLIC_WHATSAPP_DISPLAY=+7 777 227 0088
 ```
 
 ## Project Structure

@@ -17,11 +17,19 @@ export const content = {
   hero: {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Individual Programming education for Kids",
+    headingPrefix: "We teach",
+    headingSuffix: "for kids aged 7–16",
     subheading:
       "Scratch, Roblox, and Python with a mentor. Assessment and a step-by-step plan for parents from the very first lesson.",
     featureBadges: ["One-on-one", "7-16 years", "Online"],
     ctaText: "Get a free trial lesson",
     ctaSubtext: "Limited spots available.",
+    viewCoursesText: "View courses",
+    courseDescriptions: [
+      "Visual coding — the perfect starting point",
+      "Create your own games and mechanics",
+      "Learn real programming fundamentals",
+    ],
     trustBadges: [
       "One-on-one format",
       "A mentor matched to your child's personality",
@@ -408,8 +416,8 @@ export const content = {
     },
     social: {
       whatsapp: "WhatsApp",
-      telegram: "@code_play_kids",
-      instagram: "@code_play_kids",
+      telegram: "@codeplay_school",
+      instagram: "@codeplay.school",
     },
     languageToggle: {
       ru: "Russian",

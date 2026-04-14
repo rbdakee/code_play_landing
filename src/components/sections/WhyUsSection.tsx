@@ -39,19 +39,20 @@ export function WhyUsSection() {
           viewport={viewport}
         >
           <Carousel
-          slides={content.whyUs.benefits.map((benefit) => (
-            <div key={benefit.id} className="px-1">
-              <Card className="max-w-3xl mx-auto">
-                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
-                  {benefit.heading}
-                </h3>
-                <p className="text-sm md:text-base text-muted leading-relaxed">
-                  {benefit.description}
-                </p>
-              </Card>
-            </div>
-          ))}
-        />
+            desktopSlidesPerView={3}
+            slides={content.whyUs.benefits.map((benefit) => (
+              <div key={benefit.id} className="px-2 h-full">
+                <Card className="h-full">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
+                    {benefit.heading}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </Card>
+              </div>
+            ))}
+          />
         </motion.div>
       </Container>
     </section>

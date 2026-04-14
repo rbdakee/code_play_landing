@@ -45,4 +45,9 @@ export const ANIMATIONS = {
   slideInDown: "slideInDown 0.4s ease-out",
 } as const;
 
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "77772270088";
+export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+export const WHATSAPP_DISPLAY = process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY || "+7 777 227 0088";
+export const TELEGRAM_HANDLE = "@codeplay_school";
+export const TELEGRAM_URL = "https://t.me/codeplay_school";
+export const INSTAGRAM_HANDLE = "@codeplay.school";
+export const INSTAGRAM_URL = "https://instagram.com/codeplay.school";

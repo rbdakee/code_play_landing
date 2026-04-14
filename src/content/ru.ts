@@ -17,11 +17,19 @@ export const content = {
   hero: {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Индивидуальное обучение программированию для детей",
+    headingPrefix: "Учим",
+    headingSuffix: "для детей 7–16 лет",
     subheading:
       "Scratch, Roblox и Python с наставником. Диагностика и пошаговый план для родителя уже на первом уроке.",
     featureBadges: ["Индивидуально", "7-16 лет", "Онлайн"],
     ctaText: "Получить бесплатный пробный урок",
     ctaSubtext: "Количество мест ограничено.",
+    viewCoursesText: "Смотреть курсы",
+    courseDescriptions: [
+      "Визуальное программирование для старта",
+      "Создавай игры и анимации",
+      "Изучай настоящее программирование",
+    ],
     trustBadges: [
       "Индивидуально зантия",
       "Наставник под характер ребёнка",
@@ -408,8 +416,8 @@ export const content = {
     },
     social: {
       whatsapp: "WhatsApp",
-      telegram: "@code_play_kids",
-      instagram: "@code_play_kids",
+      telegram: "@codeplay_school",
+      instagram: "@codeplay.school",
     },
     languageToggle: {
       ru: "Русский",
