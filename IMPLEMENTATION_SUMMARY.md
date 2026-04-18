@@ -126,7 +126,7 @@
 3. **CoursesSection** — 3 course cards (Scratch, Roblox, Python)
 4. **TrialLessonSection** — 4-step timeline + CTA
 5. **ValueSection** — Child vs Parent value comparison (2-col)
-6. **OneOnOneSection** — 1:1 mentorship pitch + follow-up details
+6. **OneOnOneSection** — individual mentorship pitch + follow-up details
 7. **CasesSection** — 4 case studies (2-col grid)
 8. **ReviewsSection** — 6 parent testimonials (3-col grid)
 9. **HowLessonsWorkSection** — Lesson format details + CTA

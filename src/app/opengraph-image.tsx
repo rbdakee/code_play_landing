@@ -62,7 +62,7 @@ export default async function OgImage() {
               opacity: 0.95,
             }}
           >
-            1:1 lessons · Scratch · Roblox · Python
+            Personal mentor · Scratch · Roblox · Python
           </div>
         </div>
 

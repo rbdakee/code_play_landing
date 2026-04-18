@@ -4,10 +4,10 @@ export const content = {
   // Header & Meta
   siteName: "Play In Code",
   siteDescription: "One-on-one online programming courses for children aged 7-16",
-  slogan: "Play In Code — programming for kids 1:1",
+  slogan: "Play In Code — programming for kids with a personal mentor",
 
   seo: {
-    title: "Online Coding for Kids 1:1 — Scratch, Roblox, Python | Play In Code",
+    title: "Individual Online Coding for Kids — Scratch, Roblox, Python | Play In Code",
     description:
       "One-on-one online programming courses for kids 7–16: Scratch, Roblox Studio, Python. Personal mentor, Russian-speaking teachers, students from the US and Europe. Free trial lesson.",
     keywords: [
@@ -19,7 +19,7 @@ export const content = {
       "1-on-1 coding lessons",
       "online coding school",
     ],
-    ogTitle: "Play In Code — 1:1 Online Programming for Kids 7–16",
+    ogTitle: "Play In Code — Online Programming for Kids 7–16",
     ogDescription:
       "Scratch, Roblox, and Python with a personal mentor. Russian-speaking school for children in the US and Europe. Book a free trial lesson.",
     privacy: {
@@ -46,12 +46,12 @@ export const content = {
   // ============ HERO SECTION ============
   hero: {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
-    heading: "Online Coding for Kids 1:1 — Scratch, Roblox, Python",
+    heading: "Online Coding for Kids — Scratch, Roblox, Python",
     headingPrefix: "We teach",
-    headingSuffix: "Online coding for kids 7–16, 1:1",
+    headingSuffix: "Online coding for kids 7–16",
     subheading:
       "Scratch, Roblox, and Python with a mentor. Assessment and a step-by-step plan for parents from the very first lesson.",
-    featureBadges: ["One-on-one", "7-16 years", "Online"],
+    featureBadges: ["Individual", "7-16 years", "Online"],
     ctaText: "Get a free trial lesson",
     ctaSubtext: "Limited spots available.",
     viewCoursesText: "View courses",
@@ -221,7 +221,7 @@ export const content = {
 
   // ============ ONE-ON-ONE SECTION ============
   oneOnOne: {
-    heading: "Why 1:1 Works Better",
+    heading: "Why Individual Learning Works Better",
     description:
       "In a one-on-one format, a child does not get lost in a group and receives the mentor's full attention in every lesson.",
     considerations: [
