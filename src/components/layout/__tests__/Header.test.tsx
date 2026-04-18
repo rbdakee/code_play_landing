@@ -1,4 +1,4 @@
-﻿import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Header } from "../Header";
 
 describe("Header Component", () => {
@@ -9,21 +9,20 @@ describe("Header Component", () => {
 
   it("renders CTA button", () => {
     render(<Header />);
-    expect(screen.getByRole("link", { name: "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð±Ð½Ñ‹Ð¹ ÑƒÑ€Ð¾Ðº" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Получить бесплатный пробный урок" })).toBeInTheDocument();
   });
 
   it("CTA button links to WhatsApp", () => {
     render(<Header />);
-    const button = screen.getByRole("link", { name: "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð±Ð½Ñ‹Ð¹ ÑƒÑ€Ð¾Ðº" });
+    const button = screen.getByRole("link", { name: "Получить бесплатный пробный урок" });
     expect(button).toHaveAttribute("href");
     expect(button.getAttribute("href")).toContain("wa.me");
   });
 
   it("has correct link attributes for WhatsApp", () => {
     render(<Header />);
-    const button = screen.getByRole("link", { name: "ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð±ÐµÑÐ¿Ð»Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¿Ñ€Ð¾Ð±Ð½Ñ‹Ð¹ ÑƒÑ€Ð¾Ðº" });
+    const button = screen.getByRole("link", { name: "Получить бесплатный пробный урок" });
     expect(button).toHaveAttribute("target", "_blank");
     expect(button).toHaveAttribute("rel", "noopener noreferrer");
   });
 });
-
