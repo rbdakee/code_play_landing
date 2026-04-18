@@ -22,7 +22,12 @@ export function LanguageProvider({
   locale: Locale;
 }) {
   const pathname = usePathname();
-  const resolvedLocale: Locale = pathname?.startsWith("/en") ? "en" : locale;
+  // Derive locale from URL on every navigation to avoid stale layout-provided locale.
+  const resolvedLocale: Locale = pathname
+    ? pathname.startsWith("/en")
+      ? "en"
+      : "ru"
+    : locale;
 
   const value = useMemo(
     () => ({ locale: resolvedLocale, content: getContent(resolvedLocale) }),
