@@ -1,0 +1,21 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "Play In Code — программирование для детей 7–16",
+    short_name: "Play In Code",
+    description:
+      "Индивидуальные онлайн-курсы программирования для детей 7–16 лет: Scratch, Roblox, Python.",
+    start_url: "/",
+    display: "standalone",
+    background_color: "#ffffff",
+    theme_color: "#60C849",
+    icons: [
+      {
+        src: "/logo_no_words.png",
+        sizes: "any",
+        type: "image/png",
+      },
+    ],
+  };
+}

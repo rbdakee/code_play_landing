@@ -1,22 +1,25 @@
-import type { Metadata } from "next";
-import { content as ruContent } from "@/content/ru";
+import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Providers } from "./providers";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { getSiteUrl } from "@/lib/seo/siteUrl";
+import type { Locale } from "@/content";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: ruContent.siteName,
-  description: ruContent.siteDescription,
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+  metadataBase: new URL(getSiteUrl()),
   icons: {
     icon: "/logo_no_words.png",
     shortcut: "/logo_no_words.png",
     apple: "/logo_no_words.png",
   },
-  openGraph: {
-    title: ruContent.siteName,
-    description: ruContent.siteDescription,
-    type: "website",
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#60C849",
 };
 
 export default function RootLayout({
@@ -24,14 +27,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale: Locale = headers().get("x-locale") === "en" ? "en" : "ru";
+
   return (
-    <html lang="ru">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="robots" content="index, follow" />
-      </head>
+    <html lang={locale}>
       <body className="bg-background text-foreground antialiased">
-        <Providers>{children}</Providers>
+        <Providers locale={locale}>{children}</Providers>
+        <GoogleAnalytics />
       </body>
     </html>
   );

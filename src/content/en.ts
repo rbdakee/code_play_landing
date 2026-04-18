@@ -5,6 +5,36 @@ export const content = {
   siteName: "Play In Code",
   siteDescription: "One-on-one online programming courses for children aged 7-16",
   slogan: "Play In Code — programming for kids 1:1",
+
+  seo: {
+    title: "Online Coding for Kids 1:1 — Scratch, Roblox, Python | Play In Code",
+    description:
+      "One-on-one online programming courses for kids 7–16: Scratch, Roblox Studio, Python. Personal mentor, Russian-speaking teachers, students from the US and Europe. Free trial lesson.",
+    keywords: [
+      "online coding for kids",
+      "programming courses for children",
+      "Scratch for kids",
+      "Roblox Studio for kids",
+      "Python for kids",
+      "1-on-1 coding lessons",
+      "online coding school",
+    ],
+    ogTitle: "Play In Code — 1:1 Online Programming for Kids 7–16",
+    ogDescription:
+      "Scratch, Roblox, and Python with a personal mentor. Russian-speaking school for children in the US and Europe. Book a free trial lesson.",
+    privacy: {
+      title: "Privacy Policy",
+      description: "How Play In Code processes personal data of students and parents.",
+    },
+    terms: {
+      title: "Terms of Use",
+      description: "Rules for using the Play In Code online school website and services.",
+    },
+    consent: {
+      title: "Consent to Data Processing",
+      description: "Consent terms for processing personal data when booking a trial lesson.",
+    },
+  },
   header: {
     ctaText: "Get trial",
     logoAlt: "Play In Code",
@@ -16,9 +46,9 @@ export const content = {
   // ============ HERO SECTION ============
   hero: {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
-    heading: "Individual Programming education for Kids",
+    heading: "Online Coding for Kids 1:1 — Scratch, Roblox, Python",
     headingPrefix: "We teach",
-    headingSuffix: "for kids aged 7–16",
+    headingSuffix: "Online coding for kids 7–16, 1:1",
     subheading:
       "Scratch, Roblox, and Python with a mentor. Assessment and a step-by-step plan for parents from the very first lesson.",
     featureBadges: ["One-on-one", "7-16 years", "Online"],

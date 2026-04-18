@@ -1,15 +1,28 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/cn";
 import { useContent, useLanguage } from "@/lib/i18n";
 
+const LOCALES = ["ru", "en"] as const;
+
+function localeHref(pathname: string, targetLocale: "ru" | "en"): string {
+  const stripped = pathname.replace(/^\/en(\/|$)/, "/").replace(/\/$/, "");
+  const base = stripped === "" ? "/" : stripped;
+  if (targetLocale === "ru") return base;
+  return base === "/" ? "/en" : `/en${base}`;
+}
+
 export function Header() {
   const content = useContent();
-  const { locale, setLocale } = useLanguage();
+  const { locale } = useLanguage();
+  const pathname = usePathname() ?? "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollYRef = useRef(0);
@@ -37,6 +50,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const homeHref = locale === "en" ? "/en" : "/";
+
   return (
     <header
       className={cn(
@@ -48,19 +63,19 @@ export function Header() {
       )}
     >
       <Container className="flex items-center justify-between gap-4 py-3">
-        {/* Logo */}
-        <a
-          href="/"
+        <Link
+          href={homeHref}
           className="flex items-center text-foreground hover:opacity-80 transition-opacity"
         >
-          <img
+          <Image
             src="/logo.png"
             alt={content.header.logoAlt}
             width={64}
             height={64}
+            priority
             className="h-16 w-auto"
           />
-        </a>
+        </Link>
 
         <div className="flex items-center gap-3">
           <Button
@@ -74,24 +89,24 @@ export function Header() {
           </Button>
 
           <div className="inline-flex rounded-full border border-primary/15 bg-white/90 p-1 shadow-sm">
-            {(["ru", "en"] as const).map((lang) => {
+            {LOCALES.map((lang) => {
               const isActive = locale === lang;
-
               return (
-                <button
+                <Link
                   key={lang}
-                  type="button"
-                  onClick={() => setLocale(lang)}
+                  href={localeHref(pathname, lang)}
+                  hrefLang={lang}
+                  prefetch={false}
                   className={cn(
                     "rounded-full px-3 py-1 text-xs font-semibold transition-colors",
                     isActive
                       ? "bg-primary text-white"
                       : "text-muted hover:text-foreground"
                   )}
-                  aria-pressed={isActive}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {lang.toUpperCase()}
-                </button>
+                </Link>
               );
             })}
           </div>

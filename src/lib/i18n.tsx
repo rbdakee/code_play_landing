@@ -1,52 +1,27 @@
 "use client";
 
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useMemo } from "react";
 import { getContent, Locale, SiteContent } from "@/content";
-
-const STORAGE_KEY = "code-play-locale";
 
 interface LanguageContextValue {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
   content: SiteContent;
 }
 
-const defaultLocale: Locale = "ru";
-
 const LanguageContext = createContext<LanguageContextValue>({
-  locale: defaultLocale,
-  setLocale: () => undefined,
-  content: getContent(defaultLocale),
+  locale: "ru",
+  content: getContent("ru"),
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
-
-  useEffect(() => {
-    const savedLocale = window.localStorage.getItem(STORAGE_KEY);
-    if (savedLocale === "ru" || savedLocale === "en") {
-      setLocale(savedLocale);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, locale);
-    document.documentElement.lang = locale;
-  }, [locale]);
-
+export function LanguageProvider({
+  children,
+  locale,
+}: {
+  children: ReactNode;
+  locale: Locale;
+}) {
   const value = useMemo(
-    () => ({
-      locale,
-      setLocale,
-      content: getContent(locale),
-    }),
+    () => ({ locale, content: getContent(locale) }),
     [locale]
   );
 

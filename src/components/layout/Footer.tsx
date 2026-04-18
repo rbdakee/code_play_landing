@@ -3,7 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
 import { fadeUp, staggerFast, viewport } from "@/lib/motion";
-import { useContent } from "@/lib/i18n";
+import { useContent, useLanguage } from "@/lib/i18n";
 import Link from "next/link";
 import {
   INSTAGRAM_HANDLE,
@@ -54,6 +54,8 @@ function TelegramIcon() {
 
 export function Footer() {
   const content = useContent();
+  const { locale } = useLanguage();
+  const prefix = locale === "en" ? "/en" : "";
 
   return (
     <footer className="bg-secondary-bg border-t border-muted-light">
@@ -81,7 +83,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/privacy-policy"
+                  href={`${prefix}/privacy-policy`}
                   className="text-sm text-muted hover:text-primary transition-colors"
                 >
                   {content.footer.links.privacy}
@@ -89,7 +91,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href={`${prefix}/terms`}
                   className="text-sm text-muted hover:text-primary transition-colors"
                 >
                   {content.footer.links.terms}
@@ -97,7 +99,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/consent-to-data-processing"
+                  href={`${prefix}/consent-to-data-processing`}
                   className="text-sm text-muted hover:text-primary transition-colors"
                 >
                   {content.footer.links.dataProcessing}

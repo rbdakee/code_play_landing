@@ -1,0 +1,35 @@
+# Play In Code
+
+> Play In Code is an online programming school for children aged 7–16, offering 1-on-1 lessons in Scratch, Roblox Studio, and Python. Teachers are Russian-speaking; students come primarily from the United States and Europe (Russian-speaking diaspora). A free 40–50 minute trial lesson is available.
+
+## Courses
+
+- [Scratch for kids ages 7–10](https://school.playincode.com/#courses) — visual block-based programming, first step into coding through interactive games and animations.
+- [Roblox Studio for kids ages 9–12](https://school.playincode.com/#courses) — game development in Roblox Studio using Lua, building 3D worlds and mechanics.
+- [Python for kids ages 11–16](https://school.playincode.com/#courses) — real programming language, logic, automation, and first real projects.
+
+## Format
+
+- 1:1 individual lessons with a personal mentor.
+- 100% online, works from any country (audio + video + shared editor).
+- Parent receives a written follow-up after every lesson: what was covered and what is next.
+- Pace and curriculum adapt to the child's age, level, and interests.
+
+## Audience and geography
+
+- Target audience: parents of Russian-speaking children living in the United States, Canada, European Union, and the United Kingdom.
+- Languages of instruction: Russian (primary), English (available).
+
+## Pages
+
+- [Home (Russian)](https://school.playincode.com/)
+- [Home (English)](https://school.playincode.com/en)
+- [Privacy Policy](https://school.playincode.com/privacy-policy)
+- [Terms of Use](https://school.playincode.com/terms)
+- [Consent to Data Processing](https://school.playincode.com/consent-to-data-processing)
+
+## Contact
+
+- WhatsApp: +7 702 900 3890 (https://wa.me/77029003890)
+- Instagram: [@playincode.school](https://instagram.com/playincode.school)
+- Telegram: [@playincode_school](https://t.me/playincode_school)
