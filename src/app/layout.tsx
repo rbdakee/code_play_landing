@@ -8,11 +8,6 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  icons: {
-    icon: "/logo_no_words.png",
-    shortcut: "/logo_no_words.png",
-    apple: "/logo_no_words.png",
-  },
 };
 
 export const viewport: Viewport = {
