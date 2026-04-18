@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { useContent, useLanguage } from "@/lib/i18n";
 
@@ -86,6 +87,7 @@ export function Header() {
             rel="noopener noreferrer"
             size="sm"
             className="text-sm whitespace-nowrap"
+            onClick={() => trackWhatsAppClick("header")}
           >
             {content.header.ctaText}
           </Button>

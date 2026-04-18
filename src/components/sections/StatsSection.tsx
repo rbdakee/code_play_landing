@@ -22,6 +22,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { useContent } from "@/lib/i18n";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 // ── Icon map (order matches content.stats.list) ──────────────────────────────
@@ -228,6 +229,7 @@ export function StatsSection() {
               variant="secondary"
               size="lg"
               className="shrink-0 rounded-full font-semibold shadow-lg"
+              onClick={() => trackWhatsAppClick("stats")}
             >
               {content.scarcity.ctaText}
             </Button>

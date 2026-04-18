@@ -3,6 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { fadeUp, viewport } from "@/lib/motion";
 import { useContent } from "@/lib/i18n";
@@ -42,6 +43,7 @@ export function ScarcitySection() {
           target="_blank"
           rel="noopener noreferrer"
           size="lg"
+          onClick={() => trackWhatsAppClick("scarcity")}
         >
           {content.scarcity.ctaText}
           {"\u00A0→"}

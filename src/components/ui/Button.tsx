@@ -63,6 +63,7 @@ export function Button({
         className={buttonClassName}
         target={target}
         rel={rel}
+        onClick={onClick}
       >
         {children}
       </a>

@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { fadeUp, scaleIn, staggerContainer, viewport } from "@/lib/motion";
 import { useContent } from "@/lib/i18n";
@@ -77,6 +78,7 @@ export function CoursesSection() {
                 variant="primary"
                 size="md"
                 className="w-full"
+                onClick={() => trackWhatsAppClick(`courses_${course.id}`)}
               >
                 {course.ctaText}
               </Button>

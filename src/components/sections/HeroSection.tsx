@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Code2, Gamepad2, Sparkles } from "lucide-react";
 import { useContent } from "@/lib/i18n";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 
 // ---------------------------------------------------------------------------
 // AnimatedTextCycle
@@ -248,6 +249,7 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   size="lg"
                   className="rounded-xl px-8 text-base"
+                  onClick={() => trackWhatsAppClick("hero")}
                 >
                   {ctaText}
                 </Button>

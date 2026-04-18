@@ -3,6 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeUp, viewport } from "@/lib/motion";
@@ -77,6 +78,7 @@ export function FinalCtaSection() {
             rel="noopener noreferrer"
             size="lg"
             className="mx-auto"
+            onClick={() => trackWhatsAppClick("final_cta")}
           >
             {content.finalCta.ctaText}
             {"\u00A0→"}
