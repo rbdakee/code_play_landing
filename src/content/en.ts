@@ -284,49 +284,49 @@ export const content = {
   // ============ REVIEWS SECTION ============
   reviews: {
     heading: "What Parents Say",
-    description: "Reviews from families already learning with Play In Code",
+    description: "Real reviews from families already learning with Play In Code",
     list: [
       {
         id: "review-1",
         quote:
-          "My child looked forward to the lessons and happily showed their projects. After each lesson, I could clearly see the progress.",
-        author: "Misha's Mom",
-        country: "USA",
+          "I want to thank you for our lessons! Living in New York and finding the right mentor who speaks the same language as my child while also building a strong foundation is not easy. Geser studied Python one-on-one, and I am impressed by how well-structured the teaching is. For us, it was a great start in programming. Highly recommend!",
+        author: "Marina (son: Geser)",
+        country: "New York, Python",
       },
       {
         id: "review-2",
         quote:
-          "I love that this is not a conveyor-belt school but a truly individual approach. The mentor connected with my child very quickly.",
-        author: "Sasha's Dad",
-        country: "Spain",
+          "Bogdan is a huge Roblox fan, but I wanted this hobby to bring real value. The one-on-one format was a lifesaver for us: the teacher gently guided his interest toward development. Now Bogdan creates his own games and logic for his worlds. We are very happy with his progress!",
+        author: "Yulia (son: Bogdan)",
+        country: "Seattle, Roblox Studio (Lua)",
       },
       {
         id: "review-3",
         quote:
-          "My son used to only play games, and now he wants to create his own projects.",
-        author: "Dmitry's Parent",
-        country: "Germany",
+          "We have been studying Roblox Studio for some time already. What I like most is the individual approach. Sometimes Timofey learns quickly, and sometimes he needs to slow down and go deeper into details, and that works perfectly here. He loves that he can program character actions by himself. For Chicago, these classes are a great find in both quality and format. Thank you!",
+        author: "Elena (son: Timofey)",
+        country: "Chicago, Roblox Studio (Lua)",
       },
       {
         id: "review-4",
         quote:
-          "The trial lesson helped us understand which direction would fit best. It felt calm and professional.",
-        author: "Nastya's Mom",
-        country: "Canada",
+          "Both of my daughters study with you, and I am very glad we chose your school. The girls have different learning speeds, but thanks to individual lessons, neither falls behind. They are both excited about creating their own games in Roblox Studio. It is great that they do not just learn buttons, but a real programming language. There are many courses in Tallinn now, but we found this warm and effective approach only here!",
+        author: "Daria (daughters: Alexandra and Veronika)",
+        country: "Tallinn, Roblox Studio (Lua)",
       },
       {
         id: "review-5",
         quote:
-          "After moving abroad, it was important for us to find a clear online format in Russian. Here, our child got engaged very well.",
-        author: "Lena's Mom and Dad",
-        country: "Netherlands",
+          "Mikhail always wanted to make his own games, and Roblox Studio became the perfect solution. At first, I was skeptical about games, but when I saw how complex the Lua scripts are that they write in class, I realized this is real education. Individual lessons help my son feel comfortable and ask any questions. The results over the past few months are impressive.",
+        author: "Tatyana (son: Mikhail)",
+        country: "Berlin, Roblox Studio (Lua)",
       },
       {
         id: "review-6",
         quote:
-          "The mentor is very attentive to the child. After each lesson, we get a clear report and a next step.",
-        author: "Marat's Dad",
-        country: "England",
+          "Amirkhan completed the Python fundamentals course. It was important for us that he gets a strong foundation, and the teacher handled this task 100%. The one-on-one format helped us quickly work through difficult topics that could easily be skipped in group classes. Now my son has a solid base. Thank you very much for your professionalism.",
+        author: "Elmira (son: Amirkhan)",
+        country: "Atyrau, Python",
       },
     ] as Review[],
   },

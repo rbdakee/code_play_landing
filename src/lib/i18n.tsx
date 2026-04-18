@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, ReactNode, useContext, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import { getContent, Locale, SiteContent } from "@/content";
 
 interface LanguageContextValue {
@@ -20,9 +21,12 @@ export function LanguageProvider({
   children: ReactNode;
   locale: Locale;
 }) {
+  const pathname = usePathname();
+  const resolvedLocale: Locale = pathname?.startsWith("/en") ? "en" : locale;
+
   const value = useMemo(
-    () => ({ locale, content: getContent(locale) }),
-    [locale]
+    () => ({ locale: resolvedLocale, content: getContent(resolvedLocale) }),
+    [resolvedLocale]
   );
 
   return (
