@@ -48,7 +48,7 @@ export const content = {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Программирование для детей онлайн — Scratch, Roblox, Python, один на один",
     headingPrefix: "Учим",
-    headingSuffix: "Программирование для детей 7–16 онлайн",
+    headingSuffix: "Онлайн программирование для детей 7–16 лет",
     subheading:
       "Scratch, Roblox и Python с наставником. Диагностика и пошаговый план для родителя уже на первом уроке.",
     featureBadges: ["Индивидуально", "7-16 лет", "Онлайн"],
@@ -353,13 +353,14 @@ export const content = {
     description: "Цифры, которые показывают масштаб и доверие",
     chartLabel: "Динамика вовлечённости",
     individualFormatTitle: "Индивидуальный формат",
-    individualFormatDescription: "Все занятия проходят индивидуально, один на один",
+    individualFormatDescription: "100% индивидуальный формат",
     list: [
-      { label: "лет опыта обучения детей программированию", value: "[5]+" },
-      { label: "детей прошли обучение", value: "[500]+" },
-      { label: "стран где живут наши ученики", value: "[15]+" },
-      { label: "городов в которых учатся дети с нами", value: "[30]+" },
+      { label: "лет опыта обучения детей программированию", value: "3+" },
+      { label: "детей прошли обучение", value: "100+" },
+      { label: "стран где живут наши ученики", value: "10+" },
+      { label: "городов в которых учатся дети с нами", value: "20+" },
       { label: "индивидуальный формат", value: "100%" },
+      { label: "родителей рекомендуют нас другим", value: "95%" },
     ],
   },
 

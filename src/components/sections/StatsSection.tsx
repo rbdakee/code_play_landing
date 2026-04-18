@@ -14,6 +14,7 @@ import {
   MapPin,
   Award,
   Target,
+  Megaphone,
   BookOpen,
   Sparkles,
 } from "lucide-react";
@@ -30,6 +31,7 @@ const STAT_ICONS = [
   <Globe key="globe" className="w-8 h-8" />,
   <MapPin key="map" className="w-8 h-8" />,
   <Target key="target" className="w-8 h-8" />,
+  <Megaphone key="recommend" className="w-8 h-8" />,
 ];
 
 // ── Parse "[500]+" → { num: 500, suffix: "+" } ───────────────────────────────
