@@ -48,7 +48,7 @@ export const content = {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Online Coding for Kids — Scratch, Roblox, Python",
     headingPrefix: "We teach",
-    headingSuffix: "Online coding for kids 7–16 years old",
+    headingSuffix: "Programming for kids",
     subheading:
       "Scratch, Roblox, and Python with a mentor. Assessment and a step-by-step plan for parents from the very first lesson.",
     featureBadges: ["Individual", "7-16 years", "Online"],

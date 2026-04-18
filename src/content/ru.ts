@@ -48,7 +48,7 @@ export const content = {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Программирование для детей онлайн — Scratch, Roblox, Python, один на один",
     headingPrefix: "Учим",
-    headingSuffix: "Онлайн программирование для детей 7–16 лет",
+    headingSuffix: "Программирование для детей",
     subheading:
       "Scratch, Roblox и Python с наставником. Диагностика и пошаговый план для родителя уже на первом уроке.",
     featureBadges: ["Индивидуально", "7-16 лет", "Онлайн"],

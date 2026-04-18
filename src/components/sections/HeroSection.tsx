@@ -197,39 +197,37 @@ export function HeroSection() {
 
         <Container size="lg">
           <div className="text-center">
-            <AnimatedGroup variants={transitionVariants}>
-              {/* Top badge */}
-              <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-primary/20 bg-primary-light px-4 py-2 shadow-sm">
-                <Sparkles className="size-5 shrink-0 text-primary" />
-                <span className="text-sm font-medium text-foreground">
-                  {subheading}
+            {/* Top badge */}
+            <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-primary/20 bg-primary-light px-4 py-2 shadow-sm">
+              <Sparkles className="size-5 shrink-0 text-primary" />
+              <span className="text-sm font-medium text-foreground">
+                {subheading}
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="mt-8 mx-auto max-w-4xl text-balance text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight lg:mt-12">
+              {headingPrefix}{" "}
+              <AnimatedTextCycle
+                words={courseBadges}
+                interval={3000}
+                className="text-primary"
+              />
+              <br />
+              <span className="text-foreground">{headingSuffix}</span>
+            </h1>
+
+            {/* Feature badges */}
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {content.hero.featureBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-sm font-semibold text-foreground shadow-sm"
+                >
+                  {badge}
                 </span>
-              </div>
-
-              {/* Headline */}
-              <h1 className="mt-8 mx-auto max-w-4xl text-balance text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight lg:mt-12">
-                {headingPrefix}{" "}
-                <AnimatedTextCycle
-                  words={courseBadges}
-                  interval={3000}
-                  className="text-primary"
-                />
-                <br />
-                <span className="text-foreground">{headingSuffix}</span>
-              </h1>
-
-              {/* Feature badges */}
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
-                {content.hero.featureBadges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-sm font-semibold text-foreground shadow-sm"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-            </AnimatedGroup>
+              ))}
+            </div>
 
             {/* CTA buttons */}
             <AnimatedGroup
