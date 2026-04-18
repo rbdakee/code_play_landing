@@ -1,7 +1,7 @@
-{
+﻿{
   "name": "code-play-landing",
   "version": "1.0.0",
-  "description": "Code Play landing page for trial lesson booking",
+  "description": "Play In Code landing page for trial lesson booking",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -38,3 +38,4 @@
     "typescript": "^5.3.0"
   }
 }
+

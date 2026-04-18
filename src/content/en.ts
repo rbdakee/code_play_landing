@@ -1,13 +1,13 @@
-import { CourseCard, BenefitCard, TrialStep, Case, Review, FaqItem } from "@/types";
+﻿import { CourseCard, BenefitCard, TrialStep, Case, Review, FaqItem } from "@/types";
 
 export const content = {
   // Header & Meta
-  siteName: "Code Play",
+  siteName: "Play In Code",
   siteDescription: "One-on-one online programming courses for children aged 7-16",
-  slogan: "Code Play — programming for kids 1:1",
+  slogan: "Play In Code â€” programming for kids 1:1",
   header: {
     ctaText: "Get trial",
-    logoAlt: "Code Play",
+    logoAlt: "Play In Code",
   },
   whatsapp: {
     trialLessonMessage: "Hello! I would like to book a free trial lesson for my child",
@@ -18,7 +18,7 @@ export const content = {
     courseBadges: ["Scratch", "Roblox Studio", "Python"],
     heading: "Individual Programming education for Kids",
     headingPrefix: "We teach",
-    headingSuffix: "for kids aged 7–16",
+    headingSuffix: "for kids aged 7â€“16",
     subheading:
       "Scratch, Roblox, and Python with a mentor. Assessment and a step-by-step plan for parents from the very first lesson.",
     featureBadges: ["One-on-one", "7-16 years", "Online"],
@@ -26,7 +26,7 @@ export const content = {
     ctaSubtext: "Limited spots available.",
     viewCoursesText: "View courses",
     courseDescriptions: [
-      "Visual coding — the perfect starting point",
+      "Visual coding â€” the perfect starting point",
       "Create your own games and mechanics",
       "Learn real programming fundamentals",
     ],
@@ -40,7 +40,7 @@ export const content = {
 
   // ============ WHY US SECTION ============
   whyUs: {
-    heading: "Why Parents Choose Code Play",
+    heading: "Why Parents Choose Play In Code",
     description: "The most important things, briefly:",
     benefits: [
       {
@@ -216,7 +216,7 @@ export const content = {
 
   // ============ CASES SECTION ============
   cases: {
-    heading: "What Children Already Create at Code Play",
+    heading: "What Children Already Create at Play In Code",
     description: "Short student stories",
     resultLabel: "Result",
     list: [
@@ -254,7 +254,7 @@ export const content = {
   // ============ REVIEWS SECTION ============
   reviews: {
     heading: "What Parents Say",
-    description: "Reviews from families already learning with Code Play",
+    description: "Reviews from families already learning with Play In Code",
     list: [
       {
         id: "review-1",
@@ -319,7 +319,7 @@ export const content = {
 
   // ============ STATS SECTION ============
   stats: {
-    heading: "Code Play in Numbers",
+    heading: "Play In Code in Numbers",
     description: "Numbers that reflect scale and trust",
     chartLabel: "Engagement growth",
     individualFormatTitle: "Individual Format",
@@ -372,7 +372,7 @@ export const content = {
       {
         id: "faq-5",
         question: "Are these group lessons?",
-        answer: "No. At Code Play, lessons are only individual, one-on-one with a mentor.",
+        answer: "No. At Play In Code, lessons are only individual, one-on-one with a mentor.",
       },
       {
         id: "faq-6",
@@ -405,7 +405,7 @@ export const content = {
 
   // ============ FOOTER ============
   footer: {
-    companyName: "Code Play",
+    companyName: "Play In Code",
     companyDescription: "One-on-one online programming courses for children aged 7-16",
     infoHeading: "Information",
     contactsHeading: "Contacts",
@@ -416,13 +416,14 @@ export const content = {
     },
     social: {
       whatsapp: "WhatsApp",
-      telegram: "@codeplay_school",
-      instagram: "@codeplay.school",
+      telegram: "@playincode_school",
+      instagram: "@playincode.school",
     },
     languageToggle: {
       ru: "Russian",
       en: "English",
     },
-    copyright: "© 2026 Code Play. All rights reserved.",
+    copyright: "Â© 2026 Play In Code. All rights reserved.",
   },
 };
+

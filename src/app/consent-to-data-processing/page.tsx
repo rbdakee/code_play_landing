@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { LocalizedConsent } from "@/components/legal/LocalizedLegalPages";
 
 export const metadata: Metadata = {
-  title: "Consent to Data Processing | Code Play",
-  description: "Consent to personal data processing for the Code Play website.",
+  title: "Consent to Data Processing | Play In Code",
+  description: "Consent to personal data processing for the Play In Code website.",
 };
 
 export default function ConsentPage() {
@@ -17,3 +17,4 @@ export default function ConsentPage() {
     </>
   );
 }
+
