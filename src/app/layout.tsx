@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import { Providers } from "./providers";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import { getSiteUrl } from "@/lib/seo/siteUrl";
 import type { Locale } from "@/content";
 import "./globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className="bg-background text-foreground antialiased">
+        <GoogleTagManager />
         <Providers locale={locale}>{children}</Providers>
         <GoogleAnalytics />
       </body>
