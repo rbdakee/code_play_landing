@@ -83,6 +83,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Button
             href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+            dataCta="common"
             target="_blank"
             rel="noopener noreferrer"
             size="sm"

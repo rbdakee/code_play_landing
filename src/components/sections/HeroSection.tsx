@@ -245,6 +245,7 @@ export function HeroSection() {
               <div className="rounded-[14px] border border-primary/20 bg-primary/10 p-0.5">
                 <Button
                   href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+                  dataCta="common"
                   target="_blank"
                   rel="noopener noreferrer"
                   size="lg"

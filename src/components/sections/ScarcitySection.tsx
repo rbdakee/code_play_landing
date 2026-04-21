@@ -40,6 +40,7 @@ export function ScarcitySection() {
         >
           <Button
           href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+          dataCta="common"
           target="_blank"
           rel="noopener noreferrer"
           size="lg"

@@ -224,6 +224,7 @@ export function StatsSection() {
 
             <Button
               href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+              dataCta="common"
               target="_blank"
               rel="noopener noreferrer"
               variant="secondary"

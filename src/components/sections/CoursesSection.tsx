@@ -73,6 +73,7 @@ export function CoursesSection() {
               </div>
               <Button
                 href={getWhatsAppUrl(course.whatsappMessage)}
+                dataCta={course.id}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"

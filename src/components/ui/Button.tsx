@@ -5,6 +5,7 @@ interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
   href?: string;
+  dataCta?: string;
   className?: string;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
@@ -18,6 +19,7 @@ export function Button({
   children,
   onClick,
   href,
+  dataCta,
   className,
   variant = "primary",
   size = "md",
@@ -60,6 +62,7 @@ export function Button({
     return (
       <a
         href={href}
+        data-cta={dataCta}
         className={buttonClassName}
         target={target}
         rel={rel}
@@ -73,6 +76,7 @@ export function Button({
   return (
     <button
       type={type}
+      data-cta={dataCta}
       onClick={onClick}
       disabled={disabled}
       className={buttonClassName}
