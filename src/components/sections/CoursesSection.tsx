@@ -72,7 +72,7 @@ export function CoursesSection() {
                 </ul>
               </div>
               <Button
-                href={getWhatsAppUrl(content.whatsapp.trialLessonMessage)}
+                href={getWhatsAppUrl(course.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"

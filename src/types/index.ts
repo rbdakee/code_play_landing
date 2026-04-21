@@ -5,6 +5,7 @@ export interface CourseCard {
   description: string;
   features: string[];
   ctaText: string;
+  whatsappMessage: string;
 }
 
 export interface BenefitCard {

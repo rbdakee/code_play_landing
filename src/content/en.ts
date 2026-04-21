@@ -130,7 +130,8 @@ export const content = {
           "learns step-by-step and logical thinking",
           "makes their first original projects",
         ],
-        ctaText: "Get a free trial lesson",
+        ctaText: "Try Scratch",
+        whatsappMessage: "Hello! We are interested in Scratch for a younger child.",
       },
       {
         id: "roblox",
@@ -144,7 +145,9 @@ export const content = {
           "builds first game projects",
           "turns interest in Roblox into a useful skill",
         ],
-        ctaText: "Get a free trial lesson",
+        ctaText: "Try Roblox Studio",
+        whatsappMessage:
+          "Hello! We want our child not only to play Roblox, but also to create their own games.",
       },
       {
         id: "python",
@@ -158,7 +161,8 @@ export const content = {
           "solves practical tasks",
           "builds a strong foundation for future growth",
         ],
-        ctaText: "Get a free trial lesson",
+        ctaText: "Try Python",
+        whatsappMessage: "Hello! We are interested in Python programming. What options do you have?",
       },
     ] as CourseCard[],
   },
