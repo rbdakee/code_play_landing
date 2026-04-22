@@ -4,7 +4,7 @@ export function GoogleAnalytics() {
   const id = process.env.NEXT_PUBLIC_GA_ID;
   if (!id) return null;
 
-  const init = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${id}',{anonymize_ip:true});`;
+  const init = `window.dataLayer = window.dataLayer || []; window.gtag = function gtag(){window.dataLayer.push(arguments);}; window.gtag('js', new Date()); window.gtag('config', '${id}');`;
 
   return (
     <>

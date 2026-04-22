@@ -41,7 +41,7 @@ const contactItems = [
 const privacyContent: Record<"ru" | "en", DocContent> = {
   ru: {
     title: "Политика конфиденциальности",
-    updatedAt: "14 апреля 2026 года",
+    updatedAt: "22 апреля 2026 года",
     sections: [
       {
         title: "1. Общие положения",
@@ -90,7 +90,7 @@ const privacyContent: Record<"ru" | "en", DocContent> = {
       {
         title: "6. Cookies и технические технологии",
         paragraphs: [
-          "В текущей версии сайта не обнаружено явного подключения аналитических или рекламных счётчиков в коде сайта.",
+          "Сайт использует аналитические и маркетинговые сервисы, включая Google Tag Manager, Google Analytics, Meta Pixel и Яндекс.Метрику, чтобы оценивать посещаемость, взаимодействие со страницами и эффективность рекламы.",
           "При этом сайт и используемая инфраструктура могут применять технические cookies или аналогичные технологии, необходимые для корректной загрузки страниц, безопасности и стабильной работы хостинга.",
         ],
       },
@@ -119,7 +119,7 @@ const privacyContent: Record<"ru" | "en", DocContent> = {
   },
   en: {
     title: "Privacy Policy",
-    updatedAt: "April 14, 2026",
+    updatedAt: "April 22, 2026",
     sections: [
       {
         title: "1. General Provisions",
@@ -168,7 +168,7 @@ const privacyContent: Record<"ru" | "en", DocContent> = {
       {
         title: "6. Cookies and Technical Technologies",
         paragraphs: [
-          "In the current version of the website, no explicit analytics or advertising trackers were found in the codebase.",
+          "The website uses analytics and marketing services, including Google Tag Manager, Google Analytics, Meta Pixel, and Yandex.Metrika, to measure visits, on-site interactions, and advertising effectiveness.",
           "At the same time, the website and the underlying infrastructure may use technical cookies or similar technologies required for proper page delivery, security, and stable hosting operations.",
         ],
       },

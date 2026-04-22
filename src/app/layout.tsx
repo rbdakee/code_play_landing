@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Providers } from "./providers";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
+import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 import { getSiteUrl } from "@/lib/seo/siteUrl";
 import type { Locale } from "@/content";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
         <GoogleTagManager />
         <Providers locale={locale}>{children}</Providers>
         <GoogleAnalytics />
+        <YandexMetrika />
       </body>
     </html>
   );
